@@ -24,6 +24,10 @@ class SongViewModel @ViewModelInject constructor(
     private val _curPlayerPosition = MutableLiveData<Long>()
     val curPlayerPosition: LiveData<Long> = _curPlayerPosition
 
+    init {
+        updateCurrentPlayerPosition()
+    }
+
     private fun updateCurrentPlayerPosition() {
         viewModelScope.launch {
             while (true) {
